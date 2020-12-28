@@ -1,0 +1,96 @@
+body {
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  background-color: hsl(234, 17%, 12%);
+  background-image: url("images/bg-stars.svg");
+  background-repeat: no-repeat;
+}
+
+h1 {
+  color: white;
+  font-size: 18px;
+  letter-spacing: 7px;
+  text-align: center;
+}
+
+h2 {
+  color: hsl(345, 95%, 68%);
+  font-size: 75px;
+  margin: 0;
+  text-align: center;
+  margin-left: 7px;
+}
+
+p {
+  color: hsl(237, 18%, 59%);
+  font-size: 10px;
+}
+.countdown {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.countdown__title {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.countdown__timer {
+  height: 100px;
+  width: 115px;
+  position: relative;
+  margin-right: 25px;
+}
+
+.top,
+.top:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  z-index: -1;
+  background-color: hsl(236, 21%, 26%);
+}
+
+.top {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px 5px 0 0;
+}
+
+.top-back {
+  content: "";
+}
+
+.bottom,
+.bottom:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
+  background-color: hsl(237, 18%, 59%);
+  box-shadow: 0 5px 1px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+}
+
+.bottom-back {
+  content: "";
+}
+
+.footer {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
+
+.hills {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
