@@ -24,8 +24,10 @@ h1 {
 
 h2 {
   color: hsl(345, 95%, 68%);
+  letter-spacing: 3px;
   font-size: 65px;
   margin: 0;
+  margin-top: 10px;
   margin-left: 7px;
   text-align: center;
 }
@@ -33,6 +35,7 @@ h2 {
 p {
   color: hsl(237, 18%, 59%);
   font-size: 10px;
+  text-align: center;
 }
 
 .main {
@@ -51,7 +54,7 @@ p {
 }
 
 .countdown__timer {
-  height: 85px;
+  height: 105px;
   width: 110px;
   position: relative;
   margin-right: 25px;
@@ -65,7 +68,7 @@ p {
   height: 50%;
   overflow: hidden;
   z-index: -1;
-  background-color: hsl(236, 21%, 26%);
+  background-color: hsl(266, 31%, 23%);
 }
 
 .top {
@@ -84,7 +87,7 @@ p {
   width: 100%;
   height: 100%;
   z-index: -3;
-  background-color: hsl(237, 18%, 59%);
+  background-color: hsl(267, 28%, 31%);
   box-shadow: 0 5px 1px rgba(0, 0, 0, 0.4);
   border-radius: 5px;
 }
@@ -127,7 +130,6 @@ p {
 
   p {
     font-size: 7px;
-    text-align: center;
   }
 
   .countdown__timer {
