@@ -1,49 +1,42 @@
 const dateCountdown = new Date("January 2 2021");
-let time;
 
 //DOM
 const day = document.getElementById("days");
 const hour = document.getElementById("hours");
 const minute = document.getElementById("minutes");
 const second = document.getElementById("seconds");
-const topAnimate = document.querySelector(".top");
-const bottom = document.querySelector(".bottom");
+const bottom = document.getElementById("bottom");
 
 function add0(num) {
   return ("0" + num).slice(-2);
 }
 
-function animateFlip(num) {
-  if (num == num) {
-    // topAnimate.style.rotationX = "-180deg";
-    topAnimate.style.color = "orangered";
-    console.log(num);
-  }
-}
+function animateFlip(num, section) {
+  const topAnimate = document.querySelector("." + section + " .top");
 
-function checkZero(num, time) {
-  if (num < 0) {
-    time.innerHTML = 00;
-  } else {
-    time.innerHTML = num;
-  }
+  topAnimate.classList.add("animationClass");
+  setTimeout(function () {
+    topAnimate.classList.remove("animationClass");
+  }, 500);
 }
 
 function setTime() {
   setInterval(function () {
     const now = Date.parse(new Date());
     const timeLeft = dateCountdown - now;
+
+    //Grabbing new countdown numbers and store
     let seconds = add0(Math.floor((timeLeft / 1000) % 60));
     let minutes = add0(Math.floor((timeLeft / 1000 / 60) % 60));
     let hours = add0(Math.floor((timeLeft / (1000 * 60 * 60)) % 24));
     let days = add0(Math.floor(timeLeft / (1000 * 60 * 60 * 24)));
 
-    checkZero(days, day);
-    checkZero(hours, hour);
-    checkZero(minutes, minute);
     second.innerHTML = seconds;
+    animateFlip(days, "days");
+    animateFlip(seconds, "seconds");
+    animateFlip(minutes, "minutes");
+    animateFlip(hours, "hours");
   }, 1000);
-  animateFlip(seconds);
 }
 
 function init() {
@@ -53,10 +46,13 @@ function init() {
   let minutes = add0(Math.floor((timeLeft / 1000 / 60) % 60));
   let hours = add0(Math.floor((timeLeft / (1000 * 60 * 60)) % 24));
   let days = add0(Math.floor(timeLeft / (1000 * 60 * 60 * 24)));
+
+  let prevSec = seconds;
   day.innerHTML = days;
   hour.innerHTML = hours;
   minute.innerHTML = minutes;
   second.innerHTML = seconds;
+  animateFlip(seconds, "seconds");
   setTime();
 }
 init();
