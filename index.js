@@ -1,4 +1,4 @@
-const dateCountdown = new Date("July 19, 2025");
+const dateCountdown = new Date("January 2 2021");
 let time;
 
 //DOM
@@ -21,6 +21,14 @@ function animateFlip(num) {
   }
 }
 
+function checkZero(num, time) {
+  if (num < 0) {
+    time.innerHTML = 00;
+  } else {
+    time.innerHTML = num;
+  }
+}
+
 function setTime() {
   setInterval(function () {
     const now = Date.parse(new Date());
@@ -30,9 +38,9 @@ function setTime() {
     let hours = add0(Math.floor((timeLeft / (1000 * 60 * 60)) % 24));
     let days = add0(Math.floor(timeLeft / (1000 * 60 * 60 * 24)));
 
-    day.innerHTML = days;
-    hour.innerHTML = hours;
-    minute.innerHTML = minutes;
+    checkZero(days, day);
+    checkZero(hours, hour);
+    checkZero(minutes, minute);
     second.innerHTML = seconds;
   }, 1000);
   animateFlip(seconds);
