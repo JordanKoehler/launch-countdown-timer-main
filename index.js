@@ -23,18 +23,31 @@ const time = {
   minutes: 0,
   hours: 0,
   days: 0,
-  countdown: new Date("January 3,2021"),
+  countdown: new Date("July 19 2021"),
 };
 
 function init() {
+  const now = Date.parse(new Date());
+  const timeLeft = time.countdown - now;
+  newSeconds = add0(Math.floor((timeLeft / 1000) % 60));
+  newMinutes = add0(Math.floor((timeLeft / 1000 / 60) % 60));
+  newHours = add0(Math.floor((timeLeft / (1000 * 60 * 60)) % 24));
+  newDays = add0(Math.floor(timeLeft / (1000 * 60 * 60 * 24)));
+
+  time.seconds = newSeconds;
+  time.minutes = newMinutes;
+  time.hours = newHours;
+  time.days = newDays;
+  day.innerHTML = newDays;
+  hour.innerHTML = newHours;
+  minute.innerHTML = newMinutes;
+  second.innerHTML = newSeconds;
+}
+
+function start() {
   setInterval(function () {
     const now = Date.parse(new Date());
     const timeLeft = time.countdown - now;
-
-    day.innerHTML = days;
-    hour.innerHTML = hours;
-    minute.innerHTML = minutes;
-    second.innerHTML = seconds;
 
     function setTime() {
       //Grabbing new countdown numbers and store
@@ -42,8 +55,6 @@ function init() {
       newMinutes = add0(Math.floor((timeLeft / 1000 / 60) % 60));
       newHours = add0(Math.floor((timeLeft / (1000 * 60 * 60)) % 24));
       newDays = add0(Math.floor(timeLeft / (1000 * 60 * 60 * 24)));
-
-      second.innerHTML = seconds;
 
       day.innerHTML = newDays;
       hour.innerHTML = newHours;
@@ -66,3 +77,5 @@ function init() {
 }
 
 init();
+
+start();
