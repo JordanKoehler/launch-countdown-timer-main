@@ -3,7 +3,6 @@ const day = document.getElementById("days");
 const hour = document.getElementById("hours");
 const minute = document.getElementById("minutes");
 const second = document.getElementById("seconds");
-const bottom = document.getElementById("bottom");
 
 function add0(num) {
   return ("0" + num).slice(-2);
@@ -11,10 +10,11 @@ function add0(num) {
 
 function animateFlip(num, newNum, section) {
   const topAnimate = document.querySelector("." + section + " .top");
+  const bottom = document.querySelector("." + section + " .bottom");
   if (num != newNum) {
-    topAnimate.classList.add("animationClass");
+    topAnimate.classList.add("animationClassTop");
     setTimeout(function () {
-      topAnimate.classList.remove("animationClass");
+      topAnimate.classList.remove("animationClassTop");
     }, 500);
   }
 }
